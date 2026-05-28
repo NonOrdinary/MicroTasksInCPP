@@ -3,7 +3,7 @@
 
 
 class arena{
-    // data members
+    // data membe
     size_t offset; // the position of new segment
     // a modern allocator with vector of c++, this manages space overhead thing
     // we don't need to give a shit about what happens when we run out of space
