@@ -5,10 +5,11 @@
 #include <utility>
 #include <type_traits>
 
-/** we can also add an align function to make sure that the memory is aligned to a certain boundary, for example 8 bytes
-/* this helps in cache performance and also prevents undefined behavior when we try to access misaligned memory 
-/* this will ensure int is aligned to 4 bytes, double is aligned to 8 bytes, etc 
-/* we might have to pad the memory with some extra bytes to make sure that the next allocation is aligned to the desired boundary
+/*
+we can also add an align function to make sure that the memory is aligned to a certain boundary, for example 8 bytes
+ this helps in cache performance and also prevents undefined behavior when we try to access misaligned memory 
+ this will ensure int is aligned to 4 bytes, double is aligned to 8 bytes, etc 
+ we might have to pad the memory with some extra bytes to make sure that the next allocation is aligned to the desired boundary
 */
 
 size_t align(size_t offset, size_t alignment){
@@ -32,7 +33,7 @@ class arena{
     public:
     // following 
     // constructor 0 3 5 rule of CPP
-    arena(size_t totalSize) : totalSize(totalSize*2), offset(0){
+    arena(size_t totalSize) :  offset(0), totalSize(totalSize*2){
         buffer.resize(this->totalSize);
     }
     // destructor : default though
