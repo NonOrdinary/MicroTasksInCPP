@@ -23,11 +23,11 @@
     
 #include<iostream>
 
-class DIA{
+class Buffer{
     const std :: size_t capacity;
     int *data_ptr;
     public:
-    DIA(const std :: size_t & s_N) : capacity(s_N){
+    Buffer(const std :: size_t & s_N) : capacity(s_N){
         data_ptr = new int[capacity];  // something new to me, an array of integer with capacity on heap(new key word -> heap)
         for(int i = 0; i < capacity ; i++){
             *(data_ptr + i) = 1; // data_ptr[i] is also validś
@@ -49,7 +49,7 @@ class DIA{
         }
         data_ptr[index] = ele;
     }
-    ~DIA(){
+    ~Buffer(){
         std :: cout <<"Destructor" << std :: endl;
         delete data_ptr;
     }
@@ -58,7 +58,7 @@ class DIA{
 int main(){
    {    
         // inside scope to witness the destructor get activated
-        DIA storage= DIA(5);
+        Buffer storage= Buffer(5);
         storage.print();
         storage.put(4,1);
         storage.print();
