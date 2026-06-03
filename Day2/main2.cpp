@@ -82,6 +82,7 @@ int main(){
         Buffer another(10);
         another = storage;  // invoked copy assignment
         storage.print();
+        
         another.print();
         Buffer copyCons = storage; // 2
         /**
